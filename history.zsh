@@ -1,6 +1,4 @@
-if [ -z $HISTFILE ]; then
-    HISTFILE=$HOME/.zsh_history
-fi
+HISTFILE=$HOME/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 HISTCONTROL=ignoredups
@@ -12,4 +10,3 @@ setopt hist_ignore_dups # ignore duplication command history list
 setopt hist_ignore_space
 setopt hist_verify
 setopt inc_append_history
-
