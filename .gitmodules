@@ -4,3 +4,6 @@
 [submodule "fast-syntax-highlighting"]
 	path = fast-syntax-highlighting
 	url = https://github.com/zdharma/fast-syntax-highlighting.git
+[submodule "fzf-tab"]
+	path = fzf-tab
+	url = https://github.com/Aloxaf/fzf-tab

@@ -1,4 +1,6 @@
+fpath+=$ZDOTDIR/pure
 autoload -U promptinit && promptinit
+zstyle :prompt:pure:git:stash show yes
 prompt pure
 
 autoload -U compinit
@@ -9,6 +11,8 @@ setopt extendedglob
 setopt NO_NOMATCH
 
 export CLICOLOR=1
+
+source $ZDOTDIR/fzf-tab # before fast-syntax
 
 source $ZDOTDIR/keys.zsh
 source $ZDOTDIR/history.zsh

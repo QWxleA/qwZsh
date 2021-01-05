@@ -1,8 +1,12 @@
 slimzsh
 =======
 
-A small, usable configuration for ZSH. 
-It enables all the awesomeness of ZSH with a small and tidy config. 
+Added:
+
+- https://github.com/Aloxaf/fzf-tab
+
+A small, usable configuration for ZSH.
+It enables all the awesomeness of ZSH with a small and tidy config.
 
 # Install
 
@@ -48,4 +52,3 @@ and so much more!
 ## Tips
 
 The theme used in screenshots is PencilDark with the IBM Plex Mono font.
-
