@@ -30,7 +30,6 @@ source $ZDOTDIR/correction.zsh
 source $ZDOTDIR/stack.zsh
 source $ZDOTDIR/fzf-tab/fzf-tab.zsh # before fast-syntax
 source $ZDOTDIR/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-source $ZDOTDIR/forgit/forgit.plugin.zsh
 
 if command -v fasd >/dev/null 2>&1; then
   eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install posix-alias)"

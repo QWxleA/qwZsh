@@ -10,6 +10,3 @@
 [submodule "lib/forgit"]
 	path = forgit
 	url = https://github.com/wfxr/forgit.git
-[submodule "forgit"]
-	path = forgit
-	url = https://github.com/wfxr/forgit.git
