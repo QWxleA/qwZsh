@@ -12,14 +12,25 @@ alias ..='cd ../'
 # GIT
 
 alias ga='git add'
-alias gd='git diff'
+alias gc!='git commit -v --amend'
+alias gc='git commit -v'
+alias gca!='git commit -v -a --amend'
+alias gca='git commit -am'
+alias gca='git commit -v -a'
+alias gcam='git commit -a -m'
+alias gcan!='git commit -v -a --no-edit --amend'
+alias gcans!='git commit -v -a -s --no-edit --amend'
+alias gcn!='git commit -v --no-edit --amend'
 alias gco='git checkout'
-alias gs='git status'
+alias gcsm='git commit -s -m'
+alias gd='git diff'
 alias gl='git pull'
 alias gp='git push'
 alias gpp='git pull; git push'
+alias gs='git status'
+alias gst='git status'
 alias gwc='git whatchanged -p --abbrev-commit --pretty=medium'
-alias gca='git commit -am'
+alias gpo='git push origin'
 
 #https://wiki.archlinux.org/index.php/Dotfiles#Tracking_dotfiles_directly_with_Git
 alias dot="/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME"
@@ -166,9 +177,8 @@ function mpvpause() {
         echo '{ "command": ["set_property", "pause", true] }' | socat - "/tmp/$a"
     done
     }
-#alias m=mpvsocket
-#alias m=mplayer
 alias mpv="prime-run mpv --input-ipc-server=/tmp/mpvsocket-$(date +%s)"
+alias m="prime-run mpv --input-ipc-server=/tmp/mpvsocket-$(date +%s)"
 
 # Arch & pacman
 alias aw="arch-wiki"
@@ -428,19 +438,6 @@ if (( $+commands[xdg-open] )); then
     xdg-open "https://www.archlinux.org/packages/$repo/$arch/$pkg/" &>/dev/null
   }
 fi
-
-## QW git
-alias gc='git commit -v'
-alias gc!='git commit -v --amend'
-alias gcn!='git commit -v --no-edit --amend'
-alias gca='git commit -v -a'
-alias gca!='git commit -v -a --amend'
-alias gcan!='git commit -v -a --no-edit --amend'
-alias gcans!='git commit -v -a -s --no-edit --amend'
-alias gcam='git commit -a -m'
-alias gcsm='git commit -s -m'
-
-alias gst='git status'
 
 ## QW fzf
 
