@@ -10,3 +10,9 @@
 [submodule "lib/forgit"]
 	path = forgit
 	url = https://github.com/wfxr/forgit.git
+[submodule "dotbare"]
+	path = dotbare
+	url = https://github.com/kazhala/dotbare.git
+[submodule "dircolors-solarized"]
+	path = dircolors-solarized
+	url = https://github.com/seebi/dircolors-solarized.git

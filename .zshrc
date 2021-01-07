@@ -24,6 +24,7 @@ done
 
 source $ZDOTDIR/history.zsh
 source $ZDOTDIR/keys.zsh
+source $ZDOTDIR/dotbare/dotbare.plugin.zsh #before completion
 source $ZDOTDIR/completion.zsh
 source $ZDOTDIR/aliases.zsh
 source $ZDOTDIR/correction.zsh
@@ -31,6 +32,12 @@ source $ZDOTDIR/stack.zsh
 source $ZDOTDIR/fzf-tab/fzf-tab.zsh # before fast-syntax
 source $ZDOTDIR/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source $ZDOTDIR/forgit/forgit.plugin.zsh
+
+#dotbare is loaded up in .zshrc, first
+_dotbare_completion_cmd
+
+eval $(dircolors dircolors-solarized/dircolors.256dark)
+
 
 if command -v fasd >/dev/null 2>&1; then
   eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install posix-alias)"
