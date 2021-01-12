@@ -4,13 +4,16 @@ autoload -U promptinit && promptinit
 #prompt pure
 
 setopt prompt_subst
-DEFAULT_USER=plovs
+DEFAULT_USER=plovs #FIXME this is ugly
 source $ZDOTDIR/lib/qwxlea.zsh-theme
 cat ~/.cache/palete-dark 2>/dev/null
 cat ~/.cache/palete-light 2>/dev/null
 
 autoload -U compinit
-compinit
+#compinit
+#https://unix.stackexchange.com/questions/391641/separate-path-for-zcompdump-files
+mkdir -p ~/.cache/zsh/
+compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 
 setopt autocd
 setopt extendedglob
@@ -18,26 +21,28 @@ setopt NO_NOMATCH
 
 export CLICOLOR=1
 
+trysource() {
+    [ -f "$1" ] && source "$1"
+    #echo "- loaded $1"
+    }
+
 for a in $ZDOTDIR/lib/*.plugin.zsh;do
-    source "$a"
+    trysource "$a"
 done
 
-source $ZDOTDIR/history.zsh
-source $ZDOTDIR/keys.zsh
-source $ZDOTDIR/dotbare/dotbare.plugin.zsh #before completion
-source $ZDOTDIR/completion.zsh
-source $ZDOTDIR/aliases.zsh
-source $ZDOTDIR/correction.zsh
-source $ZDOTDIR/stack.zsh
-source $ZDOTDIR/fzf-tab/fzf-tab.zsh # before fast-syntax
-source $ZDOTDIR/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-source $ZDOTDIR/forgit/forgit.plugin.zsh
+trysource $ZDOTDIR/history.zsh
+trysource $ZDOTDIR/keys.zsh
+trysource $ZDOTDIR/dotbare/dotbare.plugin.zsh #before completion
+trysource $ZDOTDIR/completion.zsh
+trysource $ZDOTDIR/aliases.zsh
+trysource $HOME/.config/shell/zshnameddirrc
+trysource $ZDOTDIR/correction.zsh
+trysource $ZDOTDIR/stack.zsh
+trysource $ZDOTDIR/fzf-tab/fzf-tab.zsh # before fast-syntax
+trysource $ZDOTDIR/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+trysource $ZDOTDIR/forgit/forgit.plugin.zsh
 
-#dotbare is loaded up in .zshrc, first
-_dotbare_completion_cmd
-
-eval $(dircolors dircolors-solarized/dircolors.256dark)
-
+eval $(dircolors $ZDOTDIR/dircolors-solarized/dircolors.256dark)
 
 if command -v fasd >/dev/null 2>&1; then
   eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install posix-alias)"

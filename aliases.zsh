@@ -96,13 +96,13 @@ alias yt="youtube-dl \
       --format 'bestvideo[height<=480]+bestaudio/best[height<=480]' \
       --merge-output-format mp4 \
       --add-metadata -i \
-      -o \"$Downloads/%(title)s.%(ext)s\""
+      -o \"$Downloads/Incoming/%(title)s.%(ext)s\""
 
 alias ytbest="youtube-dl \
       --format best \
       --merge-output-format mp4 \
       --add-metadata -i \
-      -o \"$Downloads/%(title)s.%(ext)s\""
+      -o \"$Downloads/Incoming/%(title)s.%(ext)s\""
 
 
 #      yt720="youtube-dl --format 'bestvideo[height<=720]+bestaudio/best[height<=720]' --merge-output-format mp4 --add-metadata -i -o \"$Downloads/%(title)s.%(ext)s\""
@@ -203,8 +203,8 @@ alias -g 2less='| less'
 
 alias d='dirs -v | head -10'
 
-#from OSX - xclip -selection clipboard
-alias pbcopy='xsel --clipboard --input'
+#from OSX - xclip -selection clipboard FIXME
+alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xsel --clipboard --output'
 
 alias xprop2='xprop | grep "WM_CLASS\|WM_NAME"'
@@ -227,8 +227,8 @@ cd() { builtin cd "$@" && ls; }
 
 function genpass() { head -c 500 /dev/urandom | tr -dc a-z0-9A-Z | head -c $1; echo; }
 
-function mcd() {
-    mkdir -p $1 && cd &1
+function mkdircd() {
+    mkdir -p $1 && cd $1
 }
 
 # Stopwatch/countdown
@@ -361,8 +361,6 @@ if (( $+commands[yay] )); then
     alias yaupd='yay -Sy'
   fi
 fi
-
-
 
 alias upgrade="yay -Syu"
 

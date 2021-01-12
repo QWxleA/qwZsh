@@ -58,3 +58,6 @@ zstyle '*' single-ignored show
 # fi
 
 zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
+
+#dotbare is loaded up in .zshrc, first
+_dotbare_completion_cmd
